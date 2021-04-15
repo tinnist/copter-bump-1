@@ -6,6 +6,10 @@ namespace SpriteKind {
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     copter.vy += -1
 })
+sprites.onOverlap(SpriteKind.Helicopter, SpriteKind.LandingPad, function (sprite, otherSprite) {
+    sprite.y += -2
+    sprite.setVelocity(0, 0)
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     copter.vx += -1
 })
@@ -120,4 +124,4 @@ let landing = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.LandingPad)
-landing.y = 125
+landing.y = 110
